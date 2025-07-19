@@ -1,21 +1,25 @@
 {
-  "name": "uncensormii",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
-    "preview": "vite --host 0.0.0.0 preview"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.11",
-    "cross-env": "^7.0.3",
-    "preact": "^10.26.9",
-    "tailwindcss": "^4.1.11"
-  },
-  "devDependencies": {
-    "@preact/preset-vite": "^2.10.1",
-    "vite": "^7.0.0"
-  }
+	"name": "uncensormii",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite --host 0.0.0.0",
+		"build": "vite build",
+		"preview": "vite --host 0.0.0.0 preview",
+		"lint": "prettier . --write && eslint ."
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.11",
+		"cross-env": "^7.0.3",
+		"eslint": "^9.31.0",
+		"preact": "^10.26.9",
+		"preact-icons": "^2.2.5",
+		"react-icons": "^5.5.0",
+		"tailwindcss": "^4.1.11"
+	},
+	"devDependencies": {
+		"@preact/preset-vite": "^2.10.2",
+		"vite": "^7.0.5"
+	}
 }

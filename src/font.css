@@ -1,0 +1,20 @@
+@font-face {
+	font-family: "Wii Main";
+	src: url("/assets/fonts/WiiNTLG-Regular1.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Wii Clock";
+	src: url("/assets/fonts/wiiclock.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Wii H&S";
+	src: url("/assets/fonts/healthandsafety.otf") format("opentype");
+	font-weight: normal;
+	font-style: normal;
+}

@@ -1,0 +1,28 @@
+.chnHoverName {
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+	pointer-events: none;
+}
+
+.group:hover .chnHoverName {
+	animation: fadeInDelayed 0s linear 0.5s forwards;
+}
+
+@keyframes fadeInDelayed {
+	to {
+		opacity: 1;
+	}
+}
+
+.channel-scale-widescreen {
+    width: clamp(3rem, calc(8rem * (100vw / 640)), 12rem);
+    height: clamp(2rem, calc(6rem * (100vh / 360)), 8rem);
+    transition: transform 0.2s ease-in-out;
+}
+
+.channel-scale-standard {
+    width: clamp(4rem, calc(8rem * (100vw / 640)), 16rem);
+    height: clamp(3rem, calc(6rem * (100vh / 480)), 12rem);
+    transition: transform 0.2s ease-in-out;
+}
+

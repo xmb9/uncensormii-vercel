@@ -1,0 +1,37 @@
+/* 
+   not even sure if this is used anymore, but moving it from
+   index.css anyway just because why not right!! 
+*/
+
+.WiiButtonSelected {
+	--b: 5px; /* border thickness */
+	--c: red; /* border color */
+	--w: 20px; /* border width */
+	--g: #0000 90deg, var(--c) 0;
+	--p: var(--w) var(--w) border-box no-repeat;
+
+	border: var(--b) solid transparent;
+	background:
+		conic-gradient(from 90deg at top var(--b) left var(--b), var(--g)) 0 0 /
+			var(--p),
+		conic-gradient(from 180deg at top var(--b) right var(--b), var(--g)) 100%
+			0 / var(--p),
+		conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--g)) 0
+			100% / var(--p),
+		conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--g)) 100%
+			100% / var(--p);
+
+	height: 125px;
+	margin: 5px;
+	padding: 20px;
+
+	--tw-translate-y: calc(15% * -1) /* -15% */;
+	translate: var(--tw-translate-x) var(--tw-translate-y);
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	text-align: center;
+	box-sizing: border-box;
+}

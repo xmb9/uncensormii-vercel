@@ -1,66 +1,51 @@
+@import "https://gist.githubusercontent.com/chuseman/b3560861e1f93fcb65ce2e32d1018ca7/raw/5fcf867dd3955680c24e447bc84d8565ca93dd9d/JetBrainsMono%2520Nerd%2520Font%2520Mono%2520v3.3.0.css";
 @import "tailwindcss";
+@import "./font.css";
 
 @theme {
-  --color-background: #1e1e2e;
-  --color-bg-secondary: #313244;
-  --color-primary: #cba6f7;
-  --color-secondary: #8f93ac;
+	/* catppuccin mocha */
+	--color-background: #1e1e2e;
+	--color-bg-secondary: #313244;
+	--color-primary: #cba6f7;
+	--color-secondary: #8f93ac;
+
+	/* see font.css for font definitions */
+	--font-wiimain: "Wii Main";
+	--font-wiiclock: "Wii Clock";
+	--font-wiihs: "Wii H&S";
+	--font-mono: "JetBrains Mono", monospace;
 }
 
-html, body {
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
-    padding: 0;
+* {
+	font-family: "Wii Main";
+}
+
+html,
+body {
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+	padding: 0;
 }
 
 body {
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Minecraft_missing_texture_block.svg/1200px-Minecraft_missing_texture_block.svg.png');
-    background-size: 100vw 100vh; /* cover the entire screen!!! */
+	background-image: url("");
+	background-size: 100vw 100vh; /* cover the entire screen!!! */
 }
 
 .biggerScreenNOW {
-    display: none;
+	z-index: 999;
+	display: none;
 }
 
-
-@media (min-width: 540px), (min-height: 625px) {
-    .biggerScreenNOW {
-        display: none;
-    }
+/* @media (min-width: 540px), (min-height: 625px) {
+	.biggerScreenNOW {
+		display: none;
+	}
 }
 
 @media (max-width: 539px), (max-height: 624px) {
-    .biggerScreenNOW {
-        display: block;
-    }
-}
-
-.WiiButtonSelected {
-  --b: 5px;   /* border thickness */
-  --c: red;   /* border color */
-  --w: 20px;  /* border width */
-  --g: #0000 90deg, var(--c) 0;
-  --p: var(--w) var(--w) border-box no-repeat;
-
-  border: var(--b) solid transparent;
-  background:
-    conic-gradient(from 90deg  at top    var(--b) left  var(--b), var(--g)) 0    0    / var(--p),
-    conic-gradient(from 180deg at top    var(--b) right var(--b), var(--g)) 100% 0    / var(--p),
-    conic-gradient(from 0deg   at bottom var(--b) left  var(--b), var(--g)) 0    100% / var(--p),
-    conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--g)) 100% 100% / var(--p);
-
-  height: 125px;
-  margin: 5px;
-  padding: 20px;
-
-  --tw-translate-y: calc(15% * -1) /* -15% */;
-  translate: var(--tw-translate-x) var(--tw-translate-y);
-
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  text-align: center;
-  box-sizing: border-box;
-}
+	.biggerScreenNOW {
+		display: block;
+	}
+} */
