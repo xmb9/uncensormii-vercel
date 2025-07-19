@@ -11,5 +11,4 @@
 	animation: spin3d 8s linear infinite;
 	transform-style: preserve-3d;
 	backface-visibility: visible;
-	/* optional: add some perspective to the container if you want stronger 3D effect */
 }
