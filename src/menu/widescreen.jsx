@@ -4,79 +4,81 @@ import { WiiMenuFooterButton } from "../renderingEngine/menu/footerButton";
 import { WiiMenuFooter } from "../renderingEngine/menu/footer";
 
 export function WidescreenMenu() {
-    if (!localStorage.getItem("channels")) {
-        localStorage.setItem(
-            "channels",
-            JSON.stringify([
-                {
-                    id: "disc",
-                    name: "Disc Channel",
-                    icon: "/assets/img/chn/disc/icon.svg",
-                },
-            ]),
-        );
-    }
+	if (!localStorage.getItem("channels")) {
+		localStorage.setItem(
+			"channels",
+			JSON.stringify([
+				{
+					id: "disc",
+					name: "Disc Channel",
+					icon: "/assets/img/chn/disc/icon.svg",
+				},
+			]),
+		);
+	}
 
-    const channels = JSON.parse(localStorage.getItem("channels") || "[]");
+	const channels = JSON.parse(localStorage.getItem("channels") || "[]");
 
-    const handleClick = () => {
-        localStorage.oobeCompleted = "false";
-        window.location.reload();
-    };
+	const handleClick = () => {
+		localStorage.oobeCompleted = "false";
+		window.location.reload();
+	};
 
-    return (
-        <div className="flex flex-col h-screen bg-gradient-to-b from-[#f6f6f6] to-[#e1e2e6]">
-            <div className="flex-1 basis-[80%] bg-[#e1e2e6] border-b-2 border-[#b3e3fa] flex flex-col items-center justify-center">
-                <div className="grid grid-cols-4 grid-rows-3 gap-6 pl-25 w-[100%] h-[80%]">
-                    {[...Array(12)].map((_, i) => {
-                        const ch = channels[i];
-                        if (ch) {
-                            return (
-                                <WiiChannel
-                                    key={ch.id}
-                                    icon={ch.icon}
-                                    name={ch.name}
-                                    hoverFX
-                                    mode="widescreen"
-                                />
-                            );
-                        } else {
-                            return <WiiChannel key={`placeholder-${i}`} icon="" name="" mode="widescreen" />;
-                        }
-                    })}
-                </div>
-            </div>
+	return (
+		<div className="flex flex-col h-screen bg-gradient-to-b from-[#f6f6f6] to-[#e1e2e6]">
+			<div className="flex-1 basis-[80%] bg-[#e1e2e6] border-b-2 border-[#b3e3fa] flex flex-col items-center justify-center">
+				<div className="grid grid-cols-4 grid-rows-3 gap-6 pl-25 w-[100%] h-[80%]">
+					{[...Array(12)].map((_, i) => {
+						const ch = channels[i];
+						if (ch) {
+							return (
+								<WiiChannel
+									key={ch.id}
+									icon={ch.icon}
+									name={ch.name}
+									hoverFX
+									mode="widescreen"
+								/>
+							);
+						} else {
+							return (
+								<WiiChannel
+									key={`placeholder-${i}`}
+									icon=""
+									name=""
+									mode="widescreen"
+								/>
+							);
+						}
+					})}
+				</div>
+			</div>
 
-            <WiiMenuFooter>
-                <WiiMenuFooterButton 
-                    icon="/Favicon.png" 
-                    clickID="settings" 
-                />
-                
-                <div className="flex flex-col items-center justify-center leading-none">
-                    <span
-                        className="text-center text-3xl font-light text-[#7a7a7a] select-none tracking-wide drop-shadow"
-                        style={{ letterSpacing: "0.05em" }}
-                    >
-                        Mon 7/15
-                    </span>
-                    <span
-                        className="text-center text-5xl font-light text-[#7a7a7a] select-none tracking-wide drop-shadow"
-                        style={{ letterSpacing: "0.05em" }}
-                    >
-                        00:00
-                    </span>
-                </div>
+			<WiiMenuFooter>
+				<WiiMenuFooterButton icon="/Favicon.png" clickID="settings" />
 
-                <WiiMenuFooterButton clickID="mail">
-                    
-                    {/* normally icon would be defined as `icon="bleh.png"` as seen above,
+				<div className="flex flex-col items-center justify-center leading-none">
+					<span
+						className="text-center text-3xl font-light text-[#7a7a7a] select-none tracking-wide drop-shadow"
+						style={{ letterSpacing: "0.05em" }}
+					>
+						Mon 7/15
+					</span>
+					<span
+						className="text-center text-5xl font-light text-[#7a7a7a] select-none tracking-wide drop-shadow"
+						style={{ letterSpacing: "0.05em" }}
+					>
+						00:00
+					</span>
+				</div>
+
+				<WiiMenuFooterButton clickID="mail">
+					{/* normally icon would be defined as `icon="bleh.png"` as seen above,
                         but this also works
                     */}
-                    <FaEnvelope size={32} color="#34BEED" />
-                
-                </WiiMenuFooterButton>
-            </WiiMenuFooter>
-        </div>
-    );
+					<FaEnvelope size={32} color="#34BEED" />
+				</WiiMenuFooterButton>
+			</WiiMenuFooter>
+		</div>
+	);
 }

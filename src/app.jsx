@@ -38,7 +38,7 @@ export function App() {
 				use UncensorMii
 			</div>
 			{oobeCompleted ? <Menu /> : <OOBERenderer />}
-			
+
 			{/* only enable our testing menu when running 'pnpm dev' */}
 			{/* REMOVE WHEN SUBMITTING FOR PROCCYTHON!! */}
 			{import.meta.env.DEV && (

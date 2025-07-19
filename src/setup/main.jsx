@@ -42,12 +42,11 @@ export function Setup() {
 	// render either the PressEnterToContinue menu
 	// or the SelectSystemBackend splash
 	useEffect(() => {
-
-		switch(phase) {
-			case 'initial':
+		switch (phase) {
+			case "initial":
 				console.log("initial");
 				break;
-			case 'sysBkndSplash':
+			case "sysBkndSplash":
 				console.log("sysBkndSplash");
 				break;
 		}
