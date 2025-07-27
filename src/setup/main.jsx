@@ -42,6 +42,7 @@ export function Setup() {
 	// render either the PressEnterToContinue menu
 	// or the SelectSystemBackend splash
 	useEffect(() => {
+		// im testing switch cases ignore this :D
 		switch (phase) {
 			case "initial":
 				console.log("initial");
