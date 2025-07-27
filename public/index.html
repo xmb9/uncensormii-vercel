@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
+	<head>
+		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -22,127 +22,134 @@
 		<meta property="og:image:height" content="1500" />
 		<link rel="icon" type="image/png" href="/Favicon.png" />
 		<title>UncensorMii</title>
-  <style>
-    html, body {
-      margin: 0; padding: 0; height: 100vh; width: 100vw;
-      background: black;
-      overflow: hidden;
-    }
-    #container {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: black;
-    }
-    #thug {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      margin: 0;
-      color: white;
-      font-family: monospace, monospace;
-      font-size: 14px;
-      background: rgba(0,0,0,0.6);
-      padding: 6px 10px;
-      border-radius: 6px;
-      white-space: pre-line;
-      z-index: 9999;
-      max-width: 300px;
-    }
-    iframe {
-      top: 0px;
-      left: 0px;
-      border: none;
-      image-rendering: pixelated;
-    }
-  </style>
-</head>
-<body>
-  <p id="thug">dbg</p>
-  <div id="container">
-    <iframe src="/iframe.html" id="myIframe"></iframe>
-  </div>
+		<style>
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				height: 100vh;
+				width: 100vw;
+				background: black;
+				overflow: hidden;
+			}
+			#container {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: black;
+			}
+			#thug {
+				position: fixed;
+				top: 10px;
+				left: 10px;
+				margin: 0;
+				color: white;
+				font-family: monospace, monospace;
+				font-size: 14px;
+				background: rgba(0, 0, 0, 0.6);
+				padding: 6px 10px;
+				border-radius: 6px;
+				white-space: pre-line;
+				z-index: 9999;
+				max-width: 300px;
+			}
+			iframe {
+				top: 0px;
+				left: 0px;
+				border: none;
+				image-rendering: pixelated;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="thug">dbg</p>
+		<div id="container">
+			<iframe src="/iframe.html" id="myIframe"></iframe>
+		</div>
 
-  <script>
-    function getAspectRatioCategory() {
-      const w = window.outerWidth;
-      const h = window.outerHeight;
-      const ratio = w / h;
+		<script>
+			function getAspectRatioCategory() {
+				const w = window.outerWidth;
+				const h = window.outerHeight;
+				const ratio = w / h;
 
-      const ratio16by9 = 16 / 9;
-      const ratio4by3 = 4 / 3;
+				const ratio16by9 = 16 / 9;
+				const ratio4by3 = 4 / 3;
 
-      const diff16by9 = Math.abs(ratio - ratio16by9);
-      const diff4by3 = Math.abs(ratio - ratio4by3);
+				const diff16by9 = Math.abs(ratio - ratio16by9);
+				const diff4by3 = Math.abs(ratio - ratio4by3);
 
-      const threshold = 0.2;
+				const threshold = 0.2;
 
-      if (diff16by9 < diff4by3 && diff16by9 < threshold) {
-        return "16:9";
-      } else if (diff4by3 < diff16by9 && diff4by3 < threshold) {
-        return "4:3";
-      } else {
-        return "other";
-      }
-    }
+				if (diff16by9 < diff4by3 && diff16by9 < threshold) {
+					return "16:9";
+				} else if (diff4by3 < diff16by9 && diff4by3 < threshold) {
+					return "4:3";
+				} else {
+					return "other";
+				}
+			}
 
-    function updateWiiCTX() {
-      const w = window.outerWidth;
-      const h = window.outerHeight;
-      const category = getAspectRatioCategory();
-      const ratio = (w / h).toFixed(3);
+			function updateWiiCTX() {
+				const w = window.outerWidth;
+				const h = window.outerHeight;
+				const category = getAspectRatioCategory();
+				const ratio = (w / h).toFixed(3);
 
-      window.__WiiCTX__ = {
-        mode: category === "16:9" ? "widescreen" : "standard",
-        res: {
-          width: w,
-          height: h,
-          ratio,
-          category,
-        },
-      };
-    }
+				window.__WiiCTX__ = {
+					mode: category === "16:9" ? "widescreen" : "standard",
+					res: {
+						width: w,
+						height: h,
+						ratio,
+						category,
+					},
+				};
+			}
 
-    function updateIframeSize() {
-      updateWiiCTX();
+			function updateIframeSize() {
+				updateWiiCTX();
 
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-      const ratio = (w / h).toFixed(3);
-      const category = getAspectRatioCategory();
+				const w = window.innerWidth;
+				const h = window.innerHeight;
+				const ratio = (w / h).toFixed(3);
+				const category = getAspectRatioCategory();
 
-      const iframe = document.getElementById("myIframe");
-      const debug = document.getElementById("thug");
-      if (!iframe || !debug) return;
+				const iframe = document.getElementById("myIframe");
+				const debug = document.getElementById("thug");
+				if (!iframe || !debug) return;
 
-      let nativeWidth = 640;
-      let nativeHeight = 480;
-      if (category === "16:9") {
-        nativeHeight = 360;
-      }
+				let nativeWidth = 640;
+				let nativeHeight = 480;
+				if (category === "16:9") {
+					nativeHeight = 360;
+				}
 
-      iframe.style.width = nativeWidth + "px";
-      iframe.style.height = nativeHeight + "px";
+				iframe.style.width = nativeWidth + "px";
+				iframe.style.height = nativeHeight + "px";
 
-      const scaleX = w / nativeWidth;
-      const scaleY = h / nativeHeight;
-      const scale = Math.min(scaleX, scaleY);
+				const scaleX = w / nativeWidth;
+				const scaleY = h / nativeHeight;
+				const scale = Math.min(scaleX, scaleY);
 
-      iframe.style.transform = `scale(${scale})`;
+				iframe.style.transform = `scale(${scale})`;
 
-      debug.textContent =
-        `Screen Width: ${w}px\n` +
-        `Screen Height: ${h}px\n` +
-        `Aspect Ratio: ${ratio}\n` +
-        `Category: ${category}\n` +
-        `Native Size: ${nativeWidth}x${nativeHeight}\n` +
-        `Scale: ${scale.toFixed(3)}`;
-    }
+				debug.textContent =
+					`Screen Width: ${w}px\n` +
+					`Screen Height: ${h}px\n` +
+					`Aspect Ratio: ${ratio}\n` +
+					`Category: ${category}\n` +
+					`Native Size: ${nativeWidth}x${nativeHeight}\n` +
+					`Scale: ${scale.toFixed(3)}`;
+			}
 
-    window.addEventListener("resize", updateIframeSize);
-    window.addEventListener("load", updateIframeSize);
-  </script>
-</body>
+			window.addEventListener("resize", updateIframeSize);
+			window.addEventListener("load", updateIframeSize);
+		</script>
+	</body>
 </html>
