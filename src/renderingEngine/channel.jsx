@@ -18,7 +18,7 @@ export function WiiChannel({
 	return (
 		<div className="relative flex flex-col items-center group">
 			<div
-				className={`h-40 mr-24 relative bg-white border-[#ccc] border-4 rounded-2xl shadow-md transition-colors ${aspectClass} ${
+				className={`h-40 relative bg-white border-[#ccc] border-4 rounded-2xl shadow-md transition-colors ${aspectClass} ${
 					hoverFX
 						? "group-hover:border-blue-400 cursor-pointer"
 						: "border-[#ccc]"
@@ -28,13 +28,13 @@ export function WiiChannel({
 					<img
 						src={icon}
 						alt={key}
-						className="absolute inset-0 w-full h-full object-contain p-4 pointer-events-none spin3d"
+						className="absolute inset-0 w-full h-full object-contain p-1 pointer-events-none spin3d"
 					/>
 				)}
 			</div>
 
 			{name && (
-				<div className="absolute top-full text-center bg-[#f0f0f0] rounded-full text-xl w-[192px] text-[#444] shadow-sm z-10 chnHoverName">
+				<div className="absolute mt-5 top-full border-[#ccc] border-2 text-center bg-[#f0f0f0] rounded-full text-md w-32 text-[#444] shadow-sm z-10 chnHoverName">
 					{name}
 				</div>
 			)}

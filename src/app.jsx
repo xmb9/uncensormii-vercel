@@ -41,12 +41,12 @@ export function App() {
 
 			{/* only enable our testing menu when running 'pnpm dev' */}
 			{/* REMOVE WHEN SUBMITTING FOR PROCCYTHON!! */}
-			{import.meta.env.DEV && (
-				<TestingMenu
-					visible={testingVisible}
-					onClose={() => setTestingVisible(false)}
-				/>
-			)}
+			{/* {import.meta.env.DEV && ( */}
+			<TestingMenu
+				visible={testingVisible}
+				onClose={() => setTestingVisible(false)}
+			/>
+			{/* )} */}
 		</div>
 	);
 }

@@ -1,25 +1,21 @@
 import { useState, useEffect } from "preact/hooks";
-import { StandardMenu } from "./standard.jsx";
-import { WidescreenMenu } from "./widescreen.jsx";
+import { WiiMainMenu } from "../renderingEngine/menu/menu";
 
 export function Menu() {
-	const [isStandard, setIsStandard] = useState(true);
+  function getInitialMode() {
+    return window.__WiiCTX__?.mode || "standard";
+  }
 
-	useEffect(() => {
-		function updateAspect() {
-			const { innerWidth: w, innerHeight: h } = window;
-			const ratio = w / h;
-			const diffTo43 = Math.abs(ratio - 4 / 3);
-			const diffTo169 = Math.abs(ratio - 16 / 9);
+  const [mode, setMode] = useState(getInitialMode);
 
-			// Show StandardMenu when closer to 4:3
-			setIsStandard(diffTo43 < diffTo169);
-		}
+  useEffect(() => {
+    function onResize() {
+		console.log("resized!! dont ignore me");
+      setMode(window.__WiiCTX__?.mode || "standard");
+    }
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
-		updateAspect();
-		window.addEventListener("resize", updateAspect);
-		return () => window.removeEventListener("resize", updateAspect);
-	}, []);
-
-	return isStandard ? <StandardMenu /> : <WidescreenMenu />;
+  return <WiiMainMenu mode={mode} />;
 }

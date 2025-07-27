@@ -12,5 +12,15 @@ export default defineConfig({
 	build: {
 		outDir: "../dist",
 		emptyOutDir: true,
+		rollupOptions: {
+			input: {
+				iframe: "src/iframe.html",
+			},
+		},
+	},
+
+	// so `pnpm dev` doesn't break
+	server: {
+		open: "/index.html",
 	},
 });
