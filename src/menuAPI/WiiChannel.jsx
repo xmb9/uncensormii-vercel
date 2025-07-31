@@ -1,15 +1,14 @@
+import { WiiChannelHandler } from "./WiiChannelHandler";
 import "./css/channel.css";
 import "./css/animations.css";
 
 export function WiiChannel({
-	key,
+	id,
 	icon,
 	name,
-	hoverFX = false,
+	enabled = false,
 	mode = "widescreen",
 }) {
-	// Choose aspect ratio class based on mode
-	// 16/9 = widescreen, 4/3 = standard
 	const aspectClass =
 		mode === "standard"
 			? "aspect-[4/3] channel-scale-standard"
@@ -19,15 +18,16 @@ export function WiiChannel({
 		<div className="relative flex flex-col items-center group">
 			<div
 				className={`h-40 relative bg-white border-[#ccc] border-4 rounded-2xl shadow-md transition-colors ${aspectClass} ${
-					hoverFX
+					enabled
 						? "group-hover:border-blue-400 cursor-pointer"
 						: "border-[#ccc]"
 				}`}
+				onClick={enabled ? () => WiiChannelHandler(id) : undefined}
 			>
 				{icon && (
 					<img
 						src={icon}
-						alt={key}
+						alt={id}
 						className="absolute inset-0 w-full h-full object-contain p-1 pointer-events-none spin3d"
 					/>
 				)}

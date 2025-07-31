@@ -1,5 +1,5 @@
 import { useMultiSelect } from "./WiiMultiSelectContext";
-import { WiiButtonMultiSelection } from "../button";
+import { WiiButtonMultiSelection } from "../WiiButton";
 
 export function WiiMultiSelectList() {
 	const {

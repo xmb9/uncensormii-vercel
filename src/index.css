@@ -18,6 +18,8 @@
 
 * {
 	font-family: "Wii Main";
+	user-select: none;
+	-webkit-user-drag: none;
 }
 
 html,

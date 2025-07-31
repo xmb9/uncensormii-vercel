@@ -1,5 +1,5 @@
 import { useState, useEffect } from "preact/hooks";
-import { WiiMainMenu } from "../renderingEngine/menu/menu";
+import { WiiMenuMain } from "../menuAPI/menu/WiiMenuMain";
 
 export function Menu() {
 	function getInitialMode() {
@@ -16,5 +16,5 @@ export function Menu() {
 		return () => window.removeEventListener("resize", onResize);
 	}, []);
 
-	return <WiiMainMenu mode={mode} />;
+	return <WiiMenuMain mode={mode} />;
 }

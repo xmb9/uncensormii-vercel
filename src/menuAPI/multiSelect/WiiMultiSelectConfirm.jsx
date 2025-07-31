@@ -1,5 +1,5 @@
 import { useMultiSelect } from "./WiiMultiSelectContext";
-import { WiiButton } from "../button";
+import { WiiButton } from "../WiiButton";
 
 export function WiiMultiSelectConfirm({ onConfirm, children }) {
 	const { mode, options, selectedIndex, selectedIndices } = useMultiSelect();

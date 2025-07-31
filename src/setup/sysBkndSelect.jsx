@@ -1,8 +1,8 @@
 import { useEffect } from "preact/hooks";
 import { render } from "preact";
-import { WiiMultiSelectProvider } from "../renderingEngine/multiSelect/WiiMultiSelectProvider";
-import { WiiMultiSelectList } from "../renderingEngine/multiSelect/WiiMultiSelectList";
-import { WiiMultiSelectConfirm } from "../renderingEngine/multiSelect/WiiMultiSelectConfirm";
+import { WiiMultiSelectProvider } from "../menuAPI/multiSelect/WiiMultiSelectProvider";
+import { WiiMultiSelectList } from "../menuAPI/multiSelect/WiiMultiSelectList";
+import { WiiMultiSelectConfirm } from "../menuAPI/multiSelect/WiiMultiSelectConfirm";
 
 export function SysBkndSelect_ContSetup() {
 	useEffect(() => {

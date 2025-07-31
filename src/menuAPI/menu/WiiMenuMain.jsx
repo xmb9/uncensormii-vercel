@@ -1,8 +1,8 @@
 import { FaEnvelope } from "react-icons/fa";
-import { WiiChannel } from "../channel";
-import { WiiMenuFooterButton } from "./footerButton";
-import { WiiMenuFooter } from "./footer";
-import { WiiClock } from "./clock";
+import { WiiChannel } from "../WiiChannel";
+import { WiiMenuFooterButton } from "./WiiMenuFooterButton";
+import { WiiMenuFooter } from "./WiiMenuFooter";
+import { WiiClock } from "./WiiMenuClock";
 
 const defaultChannels = [
 	{
@@ -12,7 +12,7 @@ const defaultChannels = [
 	},
 ];
 
-export function WiiMainMenu({ mode }) {
+export function WiiMenuMain({ mode }) {
 	if (!localStorage.getItem("channels")) {
 		localStorage.setItem("channels", JSON.stringify(defaultChannels));
 	}
@@ -20,7 +20,14 @@ export function WiiMainMenu({ mode }) {
 	const channels = JSON.parse(localStorage.getItem("channels") || "[]");
 	const aspect = mode === "standard" ? "4 / 3" : "16 / 9";
 
+
+	
 	return (
+		<>
+		{/* a fake element used by WiiChannelHandler,
+			used to display the currently selected WiiChannel
+		*/}
+		<wiichannelfswindow></wiichannelfswindow>
 		<div
 			className="flex flex-col bg-gradient-to-b from-[#f6f6f6] to-[#e1e2e6]"
 			style={{
@@ -45,10 +52,10 @@ export function WiiMainMenu({ mode }) {
 						const ch = channels[i];
 						return ch ? (
 							<WiiChannel
-								key={ch.id}
+								id={ch.id}
 								icon={ch.icon}
 								name={ch.name}
-								hoverFX
+								enabled
 								mode={mode}
 							/>
 						) : (
@@ -75,5 +82,6 @@ export function WiiMainMenu({ mode }) {
 				</WiiMenuFooterButton>
 			</WiiMenuFooter>
 		</div>
+		</>
 	);
 }
