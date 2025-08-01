@@ -43,7 +43,7 @@
 				align-items: center;
 				background: black;
 			}
-			#thug {
+			/* #thug {
 				position: fixed;
 				top: 10px;
 				left: 10px;
@@ -57,7 +57,7 @@
 				white-space: pre-line;
 				z-index: 9999;
 				max-width: 300px;
-			}
+			} */
 			iframe {
 				top: 0px;
 				left: 0px;
@@ -67,7 +67,7 @@
 		</style>
 	</head>
 	<body>
-		<p id="thug">dbg</p>
+		<!-- <p id="thug">dbg</p> -->
 		<div id="container">
 			<iframe src="/iframe.html" id="myIframe"></iframe>
 		</div>
@@ -102,6 +102,7 @@
 				const ratio = (w / h).toFixed(3);
 
 				window.__WiiCTX__ = {
+					channel: "none",
 					mode: category === "16:9" ? "widescreen" : "standard",
 					res: {
 						width: w,
@@ -121,8 +122,8 @@
 				const category = getAspectRatioCategory();
 
 				const iframe = document.getElementById("myIframe");
-				const debug = document.getElementById("thug");
-				if (!iframe || !debug) return;
+				// const debug = document.getElementById("thug");
+				// if (!iframe || !debug) return;
 
 				let nativeWidth = 640;
 				let nativeHeight = 480;
@@ -139,13 +140,13 @@
 
 				iframe.style.transform = `scale(${scale})`;
 
-				debug.textContent =
-					`Screen Width: ${w}px\n` +
-					`Screen Height: ${h}px\n` +
-					`Aspect Ratio: ${ratio}\n` +
-					`Category: ${category}\n` +
-					`Native Size: ${nativeWidth}x${nativeHeight}\n` +
-					`Scale: ${scale.toFixed(3)}`;
+				// debug.textContent =
+				// 	`Screen Width: ${w}px\n` +
+				// 	`Screen Height: ${h}px\n` +
+				// 	`Aspect Ratio: ${ratio}\n` +
+				// 	`Category: ${category}\n` +
+				// 	`Native Size: ${nativeWidth}x${nativeHeight}\n` +
+				// 	`Scale: ${scale.toFixed(3)}`;
 			}
 
 			window.addEventListener("resize", updateIframeSize);

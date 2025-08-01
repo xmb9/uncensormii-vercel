@@ -1,14 +1,18 @@
 import { WiiChannelHandler } from "./WiiChannelHandler";
+import { WiiChannelLookup } from "./WiiChannelLookup";
 import "./css/channel.css";
 import "./css/animations.css";
 
 export function WiiChannel({
 	id,
-	icon,
-	name,
 	enabled = false,
 	mode = "widescreen",
 }) {
+	const chn = WiiChannelLookup(id);
+	const icon = chn?.icon || "";
+	const name = chn?.name || "";
+	const spin = chn?.rotating === true;
+
 	const aspectClass =
 		mode === "standard"
 			? "aspect-[4/3] channel-scale-standard"
@@ -17,10 +21,10 @@ export function WiiChannel({
 	return (
 		<div className="relative flex flex-col items-center group">
 			<div
-				className={`h-40 relative bg-white border-[#ccc] border-4 rounded-2xl shadow-md transition-colors ${aspectClass} ${
+				className={`relative bg-white border-[#aaa] border-4 rounded-2xl transition-colors ${aspectClass} ${
 					enabled
 						? "group-hover:border-blue-400 cursor-pointer"
-						: "border-[#ccc]"
+						: "border-[#aaa]"
 				}`}
 				onClick={enabled ? () => WiiChannelHandler(id) : undefined}
 			>
@@ -28,7 +32,9 @@ export function WiiChannel({
 					<img
 						src={icon}
 						alt={id}
-						className="absolute inset-0 w-full h-full object-contain p-1 pointer-events-none spin3d"
+						className={`absolute inset-0 w-full h-full object-contain p-1 pointer-events-none ${
+							spin ? "spin3d" : ""
+						}`}
 					/>
 				)}
 			</div>

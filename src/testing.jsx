@@ -25,6 +25,11 @@ export function TestingMenu({ visible, onClose }) {
 		window.location.reload();
 	};
 
+	const resetChannels = () => {
+		localStorage.removeItem("channels");
+		window.location.reload();
+	};
+
 	const onMouseDown = (e) => {
 		pos.current.dragging = true;
 		const rect = windowRef.current.getBoundingClientRect();
@@ -59,7 +64,7 @@ export function TestingMenu({ visible, onClose }) {
 	return (
 		<div
 			ref={windowRef}
-			class="fixed top-[20vh] left-[20vw] w-80 rounded-lg border border-blue-300/25 bg-white/10 backdrop-blur-[15px] shadow-md text-white select-none z-50 transition-opacity duration-300 opacity-100"
+			class="fixed top-[20vh] left-[20vw] w-80 rounded-lg border border-blue-300/25 bg-white/10 backdrop-blur-[15px] shadow-md text-white select-none z-100 transition-opacity duration-300 opacity-100"
 		>
 			<div
 				onMouseDown={onMouseDown}
@@ -86,7 +91,7 @@ export function TestingMenu({ visible, onClose }) {
 					oobe completed
 				</label>
 
-				<div>
+				<div class="mb-4">
 					<p class="font-semibold mb-2">oobe stage:</p>
 					{["initial", "sysBkndSplash", "sysBknd"].map((stageOption) => (
 						<label key={stageOption} class="block cursor-pointer mb-1">
@@ -102,6 +107,13 @@ export function TestingMenu({ visible, onClose }) {
 						</label>
 					))}
 				</div>
+
+				<button
+					onClick={resetChannels}
+					class="mt-2 px-4 py-1 bg-red-500 text-white font-semibold rounded hover:bg-red-600 transition"
+				>
+					Reset Channels
+				</button>
 			</div>
 		</div>
 	);
