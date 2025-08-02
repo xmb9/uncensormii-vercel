@@ -6,9 +6,9 @@ export function HomeMenu() {
 
 	useEffect(() => {
 		const handler = (e) => {
-			if (e.metaKey && e.key === "Escape") {
-				setVisible((v) => !v);
-			}
+			if (e.metaKey && e.key === '`') {
+    setVisible(v => !v);
+}
 		};
 
 		window.addEventListener("keydown", handler);
