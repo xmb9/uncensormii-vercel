@@ -1,5 +1,6 @@
 import { AppLauncher } from "../menu/appLauncher";
 import { WiiMenuFooter } from "./menu/WiiMenuFooter";
+import { WiiPlayAudio } from "./WiiAudio";
 import { WiiButton } from "./WiiButton";
 import { WiiChannelHandler } from "./WiiChannelHandler";
 
@@ -13,19 +14,19 @@ export function WiiChannelFull({ chn, mode }) {
 	const banner = mode === "widescreen" ? chn?.WSbanner : chn?.SDbanner;
 
 	return (
-		<div className="w-screen h-screen flex flex-col z-96">
-			<audio src={chn?.musicFile || ""} autoPlay loop volume={volume} />
+		<div className="w-full h-full flex flex-col z-96">
+			<WiiPlayAudio audioFile={chn?.musicFile || ""} volume={volume} />
 
 			<div
 				className="flex-grow bg-gradient-to-b from-[#f6f6f6] to-[#e1e2e6] overflow-hidden"
 				style={{
-					width: `calc(100vw * ${aspect})`,
-					maxWidth: "100vw",
-					aspectRatio: aspect,
+    				width: "100%",
+    				maxWidth: "100%",
+    				aspectRatio: aspect,
 				}}
 			>
 				{banner && (
-					<img src={banner} className="w-full p-0 m-0 h-full object-contain" />
+					<img src={banner} className="w-full p-0 m-0 h-full" />
 				)}
 			</div>
 

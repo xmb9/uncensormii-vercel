@@ -7,8 +7,6 @@ const channelComponents = {
 };
 
 export function AppLauncher(id) {
-	console.log(`Launching channel: ${id}`);
-
 	if (id === "SPCL.returnToMenu") {
 		location.reload();
 		return;

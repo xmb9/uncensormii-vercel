@@ -39,20 +39,19 @@ export function App() {
 				use UncensorMii.
 			</div>
 
-			<div className="w-screen h-screen font-wiimain bg-black text-white z-101 hidden">
+			<div className="w-screen h-screen font-wiimain fixed bg-black text-white z-102 hidden">
 				<wiiapp></wiiapp>
 			</div>
 
 			{oobeCompleted ? <Menu /> : <OOBERenderer />}
 
 			{/* only enable our testing menu when running 'pnpm dev' */}
-			{/* REMOVE WHEN SUBMITTING FOR PROCCYTHON!! */}
-			{/* {import.meta.env.DEV && ( */}
-			<TestingMenu
-				visible={testingVisible}
-				onClose={() => setTestingVisible(false)}
-			/>
-			{/* )} */}
+			{import.meta.env.DEV && (
+				<TestingMenu
+					visible={testingVisible}
+					onClose={() => setTestingVisible(false)}
+				/>
+			)}
 
 			<HomeMenu />
 		</div>

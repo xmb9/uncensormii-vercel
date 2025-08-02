@@ -12,7 +12,7 @@ export const defaultChannels = [
 		id: "example",
 		name: "Example Channel",
 		icon: "/assets/nintendo/chn/example/icon.svg",
-		musicFile: "",
+		musicFile: "/assets/nintendo/audio/NoA_ding.mp3",
 		WSbanner: "/assets/nintendo/chn/example/bannerWS.png",
 		SDbanner: "/assets/nintendo/chn/example/bannerSD.png",
 	},

@@ -45,21 +45,6 @@
 				align-items: center;
 				background: black;
 			}
-			/* #thug {
-				position: fixed;
-				top: 10px;
-				left: 10px;
-				margin: 0;
-				color: white;
-				font-family: monospace, monospace;
-				font-size: 14px;
-				background: rgba(0, 0, 0, 0.6);
-				padding: 6px 10px;
-				border-radius: 6px;
-				white-space: pre-line;
-				z-index: 9999;
-				max-width: 300px;
-			} */
 			iframe {
 				font-size: 85%;
 				top: 0px;
@@ -70,9 +55,8 @@
 		</style>
 	</head>
 	<body>
-		<!-- <p id="thug">dbg</p> -->
 		<div id="container">
-			<iframe src="/iframe.html" id="myIframe"></iframe>
+			<iframe src="/iframe.html" id="wiiWindow"></iframe>
 		</div>
 
 		<script>
@@ -124,9 +108,7 @@
 				const ratio = (w / h).toFixed(3);
 				const category = getAspectRatioCategory();
 
-				const iframe = document.getElementById("myIframe");
-				// const debug = document.getElementById("thug");
-				// if (!iframe || !debug) return;
+				const iframe = document.getElementById("wiiWindow");
 
 				let nativeWidth = 640;
 				let nativeHeight = 480;
@@ -142,14 +124,6 @@
 				const scale = Math.min(scaleX, scaleY);
 
 				iframe.style.transform = `scale(${scale})`;
-
-				// debug.textContent =
-				// 	`Screen Width: ${w}px\n` +
-				// 	`Screen Height: ${h}px\n` +
-				// 	`Aspect Ratio: ${ratio}\n` +
-				// 	`Category: ${category}\n` +
-				// 	`Native Size: ${nativeWidth}x${nativeHeight}\n` +
-				// 	`Scale: ${scale.toFixed(3)}`;
 			}
 
 			window.addEventListener("resize", updateIframeSize);

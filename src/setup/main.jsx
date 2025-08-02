@@ -2,21 +2,14 @@ import { useEffect, useState, useRef } from "preact/hooks";
 import { EnterKeyIcon_svg } from "../assets/enter.jsx";
 import { SysBkndSelect_ContSetup } from "./sysBkndSelect.jsx";
 import { WispServerSelect } from "./wispServer.jsx";
+import { wiiPlayAudio } from "../menuAPI/WiiAudio.jsx";
 
 export function Setup() {
 	const [phase, setPhase] = useState(
 		localStorage.getItem("oobeStage") || "initial",
 	);
 	const [isFading, setIsFading] = useState(false);
-	const dingAudio = useRef(null);
-
-	// preload the audio so it isn't delayed
-	// when the user hits ENTER/SPACE
-	useEffect(() => {
-		dingAudio.current = new Audio("/assets/nintendo/audio/NoA_ding.mp3");
-		dingAudio.current.preload = "auto";
-		dingAudio.current.load();
-	}, []);
+	const dingAudioFile = "/assets/nintendo/audio/NoA_ding.mp3";
 
 	// handle a keypress (ENTER or SPACE)
 	useEffect(() => {
@@ -26,10 +19,7 @@ export function Setup() {
 				phase === "initial" &&
 				!isFading
 			) {
-				if (dingAudio.current) {
-					dingAudio.current.currentTime = 0;
-					dingAudio.current.play().catch(() => {});
-				}
+				wiiPlayAudio({ audioFile: dingAudioFile });
 				setIsFading(true);
 				setTimeout(() => {
 					setPhase("sysBkndSplash");
