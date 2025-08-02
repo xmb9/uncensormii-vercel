@@ -13,6 +13,14 @@ export function WiiMenuMain({ mode }) {
 	const channels = JSON.parse(localStorage.getItem("channels") || "[]");
 	const aspect = mode === "standard" ? "4 / 3" : "16 / 9";
 
+	function settings() {
+		console.log("Settings clicked")
+	}
+
+	function mail() {
+		console.log("Mail clicked")
+	}
+
 	return (
 		<>
 			{/* 
@@ -55,10 +63,11 @@ export function WiiMenuMain({ mode }) {
 					<WiiMenuFooterButton
 						icon="/Favicon.png"
 						clickID="settings"
+						onClick={settings}
 						mode={mode}
 					/>
 					<WiiClock />
-					<WiiMenuFooterButton clickID="mail" mode={mode}>
+					<WiiMenuFooterButton clickID="mail" mode={mode} onClick={mail}>
 						<FaEnvelope size={32} color="#34BEED" />
 					</WiiMenuFooterButton>
 				</WiiMenuFooter>

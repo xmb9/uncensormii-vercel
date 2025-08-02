@@ -1,10 +1,13 @@
-import { render } from "preact";
-import { WiiChannel_Example } from "./channels/example.jsx";
+import { render } from 'preact'
+import { WiiChannel_Example } from './channels/example.jsx'
+import { WiiChannel_Proxy } from './channels/proxychannel.jsx'
+
 
 const channelComponents = {
-	example: WiiChannel_Example,
-	// add more channels here
-};
+    example: WiiChannel_Example,
+    proxy: WiiChannel_Proxy,
+    // add more channels here
+}
 
 export function AppLauncher(id) {
 	if (id === "SPCL.returnToMenu") {
@@ -31,5 +34,10 @@ export function AppLauncher(id) {
 	}
 
 	appRoot.innerHTML = "";
+    const bannerMusic = document.getElementById("bannerMusic")
+    if (bannerMusic) {
+        bannerMusic.pause();
+        bannerMusic.currentTime = 0;
+    }
 	render(<Component />, appRoot);
 }
