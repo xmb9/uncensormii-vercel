@@ -6,6 +6,7 @@ import { TestingMenu } from "./popups/testing.jsx";
 import { HomeMenu } from "./popups/homemenu.jsx";
 
 export function App() {
+	window.registerSW();
 	const [testingVisible, setTestingVisible] = useState(false);
 	const [typed, setTyped] = useState("");
 	const oobeCompleted = localStorage.getItem("oobeCompleted") === "true";
