@@ -39,7 +39,7 @@ To open the development menu, make sure you're running the dev server first and 
 ## Credits
 
 - [kxtzownsu](https://github.com/kxtzownsu) - writing ts
-- [xmb9](https://github.com/xmb9) - remaking Wii UI assets in Figma for easy use in this 🔥
+- [xmb9](https://github.com/xmb9) - remaking Wii UI assets in Figma for easy use in this (plus all branding)🔥
 - [Alan-bur](https://github.com/Alan-bur/WM4K) - Dumping & upscaling the Wii Menu assets (SUPPORT THIS GUY ON PATREON PLEASE!!)
 - [Nintendo of America Inc](https://nintendo.com) - Owning the Wii assets, branding, name, and trademark. We do not own these, thank you Nintendo for making this amazing console!
 - Evie (AC3) - emotional support, ideas <a href="https://cdn.discordapp.com/emojis/1095803771688325130.webp?size=16"><img width="2%" src="https://cdn.discordapp.com/emojis/1095803771688325130.webp?size=16" alt="cat emoji with thumbs up"></a>
