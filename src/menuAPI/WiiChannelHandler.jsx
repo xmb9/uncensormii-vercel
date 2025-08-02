@@ -1,7 +1,7 @@
 import { createRoot } from "preact/compat/client";
 import { WiiChannelLookup } from "./WiiChannelLookup";
 import { WiiChannelFull } from "./WiiChannelFull";
-import { wiiPlayAudio } from "./WiiAudio.jsx";
+import { wiiPlayAudio, wiiStopAudio } from "./WiiAudio.jsx";
 
 let root = null;
 let container = null;
@@ -29,7 +29,7 @@ const shrinkStyles = {
     zIndex: "9999",
     willChange: "transform",
     transformOrigin: "top left",
-    transition: "transform 0.2s ease-in-out",
+    transition: "transform 0.6s ease-in-out",
     transform: "scale(1)",
 };
 
@@ -67,7 +67,11 @@ export function WiiChannelHandler(id) {
     if (id === "SPCL.returnToMenu") {
         window.parent.__WiiCTX__.channel = "none";
         if (!root) return;
-		wiiPlayAudio({ audioFile: "/assets/nintendo/audio/wiimenu/NoA_CloseChannel.wav" });
+		wiiPlayAudio({
+			audioFile: "/assets/nintendo/audio/wiimenu/NoA_CloseChannel.wav",
+		});
+		
+		wiiStopAudio({ id: "bannerMusic" });
 
         Object.assign(container.style, shrinkStyles);
         container.getBoundingClientRect();
@@ -99,6 +103,13 @@ export function WiiChannelHandler(id) {
     Object.assign(container.style, growStartStyles);
 
     wiiPlayAudio({ audioFile: "/assets/nintendo/audio/wiimenu/NoA_OpenChannel.wav" });
+	const bannerMusic = document.getElementById("bannerMusic")
+    if (bannerMusic) {
+        bannerMusic.pause();
+        bannerMusic.currentTime = 0;
+		bannerMusic.src = "";
+		bannerMusic.loop = false;
+    }
     root.render(<WiiChannelFull chn={chn} mode={mode} />);
 
     requestAnimationFrame(() => {

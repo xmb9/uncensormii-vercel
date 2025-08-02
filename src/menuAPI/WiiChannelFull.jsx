@@ -15,19 +15,21 @@ export function WiiChannelFull({ chn, mode }) {
 
 	return (
 		<div className="w-full h-full flex flex-col z-96">
-			<WiiPlayAudio audioFile={chn?.musicFile || ""} volume={volume} />
+			<WiiPlayAudio
+				audioFile={chn?.musicFile || ""}
+				volume={volume}
+				id="bannerMusic"
+			/>
 
 			<div
 				className="flex-grow bg-gradient-to-b from-[#f6f6f6] to-[#e1e2e6] overflow-hidden"
 				style={{
-    				width: "100%",
-    				maxWidth: "100%",
-    				aspectRatio: aspect,
+					width: "100%",
+					maxWidth: "100%",
+					aspectRatio: aspect,
 				}}
 			>
-				{banner && (
-					<img src={banner} className="w-full p-0 m-0 h-full" />
-				)}
+				{banner && <img src={banner} className="w-full p-0 m-0 h-full" />}
 			</div>
 
 			<WiiMenuFooter

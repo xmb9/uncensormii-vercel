@@ -14,11 +14,11 @@ export function WiiMenuMain({ mode }) {
 	const aspect = mode === "standard" ? "4 / 3" : "16 / 9";
 
 	function settings() {
-		console.log("Settings clicked")
+		console.log("Settings clicked");
 	}
 
 	function mail() {
-		console.log("Mail clicked")
+		console.log("Mail clicked");
 	}
 
 	return (

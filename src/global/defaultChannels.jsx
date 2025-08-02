@@ -22,6 +22,6 @@ export const defaultChannels = [
 		icon: "/assets/nintendo/chn/proxy/icon.png",
 		musicFile: "/assets/nintendo/chn/proxy/banner.mp3",
 		WSbanner: "/assets/nintendo/chn/proxy/bannerWS.png",
-        SDbanner: "/assets/nintendo/chn/proxy/bannerSD.png"
+		SDbanner: "/assets/nintendo/chn/proxy/bannerSD.png",
 	},
 ];
