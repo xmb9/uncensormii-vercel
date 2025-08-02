@@ -35,8 +35,8 @@ export function App() {
 	return (
 		<div className="w-screen h-screen text-primary">
 			<div className="biggerScreenNOW w-screen h-screen font-wiimain bg-black text-white">
-				your screen is too small, or you're on a phone. please use a desktop to
-				use UncensorMii
+				Your screen is too small, or you're on a phone. Please use a desktop to
+				use UncensorMii.
 			</div>
 
 			<div className="w-screen h-screen font-wiimain bg-black text-white z-101 hidden">

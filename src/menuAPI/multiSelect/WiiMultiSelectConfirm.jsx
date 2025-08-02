@@ -27,7 +27,7 @@ export function WiiMultiSelectConfirm({ onConfirm, children }) {
 		<WiiButton
 			rounded
 			onClick={handleConfirm}
-			class="mt-12 px-6 py-3 text-white bg-green-600 hover:bg-green-700 rounded-xl text-xl"
+			class="mt-12 px-6 py-3 text-white bg-green-600 hover:bg-green-700 rounded-xl text-sm"
 		>
 			{children || "Confirm"}
 		</WiiButton>

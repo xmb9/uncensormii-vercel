@@ -31,10 +31,15 @@ export function SysBkndSelect_ContSetup() {
 			window.location.reload();
 		}
 	}, []);
+	
 
 	// TODO: impl sysbknd select
 	const handleConfirm = (selected) => {
 		console.log(selected);
+		var stage = localStorage.getItem("oobeStage");
+		stage = "wispServer"
+		localStorage.setItem("oobeStage", "wispServer");
+		window.location.reload();
 	};
 
 	return (
@@ -45,8 +50,8 @@ export function SysBkndSelect_ContSetup() {
 				<>
 					Scramjet
 					<br />
-					<sub class="text-sm text-gray-700">
-						scramjet is still in beta and not stable yet! use at your own risk
+					<sub class="text-xs text-gray-700">
+						Scramjet is still in beta, use at your own risk.
 					</sub>
 				</>,
 			]}
@@ -55,7 +60,7 @@ export function SysBkndSelect_ContSetup() {
 				<div class="flex flex-col items-center justify-center h-full space-y-20">
 					<WiiMultiSelectList />
 				</div>
-				<div class="absolute bottom-4 right-4">
+				<div class="absolute bottom-[-3.5%] right-4">
 					<WiiMultiSelectConfirm onConfirm={handleConfirm}>
 						Confirm
 					</WiiMultiSelectConfirm>

@@ -64,13 +64,13 @@ export function WiiButtonMultiSelection({
 		: "hover:bg-[url('/assets/img/btn/WiiButtonSelected.svg')]";
 
 	return (
-		<div className="relative w-[32rem] h-24">
+		<div className="relative w-[22rem] h-16">
 			<button
 				onClick={onClick}
 				aria-pressed={selected}
 				className={`cursor-pointer w-full h-full ${baseBg} ${selectedBg} ${hoverBg} bg-no-repeat bg-center bg-contain flex flex-col items-center justify-center select-none text-2xl text-gray-800 ${className}`}
 			>
-				<span className="text-center leading-snug">{children}</span>
+				<span className="text-center text-sm leading-snug">{children}</span>
 			</button>
 		</div>
 	);
