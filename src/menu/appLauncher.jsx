@@ -36,5 +36,10 @@ export function AppLauncher(id) {
 	}
 
 	appRoot.innerHTML = "";
+    const bannerMusic = document.getElementById("bannerMusic")
+    if (bannerMusic) {
+        bannerMusic.pause();
+        bannerMusic.currentTime = 0;
+    }
 	render(<Component />, appRoot);
 }

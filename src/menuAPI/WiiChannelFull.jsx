@@ -14,7 +14,7 @@ export function WiiChannelFull({ chn, mode }) {
 
 	return (
 		<div className="w-screen h-screen flex flex-col z-96">
-			<audio src={chn?.musicFile || ""} autoPlay loop volume={volume} />
+			<audio id="bannerMusic" src={chn?.musicFile || ""} autoPlay loop volume={volume} />
 
 			<div
 				className="flex-grow bg-gradient-to-b from-[#f6f6f6] to-[#e1e2e6] overflow-hidden"
