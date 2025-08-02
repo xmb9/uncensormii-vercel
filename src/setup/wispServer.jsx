@@ -1,7 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 
 export function wispServerSelect() {
-  const [message, setMessage] = useState("[DEV] OOBE is unfinished. Redirecting to HOME Menu...");
+  const [message, setMessage] = useEffect("[DEV] OOBE is unfinished. Redirecting to HOME Menu...");
 
   useEffect(() => {
     const timer = setTimeout(() => {

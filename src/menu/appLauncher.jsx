@@ -1,8 +1,11 @@
 import { render } from 'preact'
 import { WiiChannel_Example } from './channels/example.jsx'
+import { WiiChannel_Proxy } from './channels/proxychannel.jsx'
+
 
 const channelComponents = {
     example: WiiChannel_Example,
+    proxy: WiiChannel_Proxy,
     // add more channels here
 }
 
