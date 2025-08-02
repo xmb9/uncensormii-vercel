@@ -35,22 +35,10 @@ export function SysBkndSelect_ContSetup() {
 	// TODO: impl sysbknd select
 	const handleConfirm = (selected) => {
 		console.log(selected);
-<<<<<<< HEAD
-		// var stage = localStorage.getItem("oobeStage");
-		// stage = "wispServer"
-		// localStorage.setItem("oobeStage", "wispServer");
-		// window.location.reload();
-		console.log("OOBE unfinished, skipping.")
-		const done = localStorage.getItem("oobeCompleted") === "true";
-      	const newVal = !done;
-      	localStorage.setItem("oobeCompleted", newVal.toString());
-      	window.location.reload();
-=======
 		var stage = localStorage.getItem("oobeStage");
 		stage = "wispServer";
 		localStorage.setItem("oobeStage", "wispServer");
 		window.location.reload();
->>>>>>> cc48ddba0e476636c2e1a10415387675b6c10e43
 	};
 
 	return (

@@ -16,7 +16,6 @@ export const defaultChannels = [
 		WSbanner: "/assets/nintendo/chn/example/bannerWS.png",
 		SDbanner: "/assets/nintendo/chn/example/bannerSD.png",
 	},
-<<<<<<< HEAD
 	{
 		id: "proxy",
 		name: "Proxy Channel",
@@ -26,6 +25,3 @@ export const defaultChannels = [
         SDbanner: "/assets/nintendo/chn/proxy/bannerSD.png"
 	},
 ];
-=======
-];
->>>>>>> cc48ddba0e476636c2e1a10415387675b6c10e43
