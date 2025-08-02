@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import '../../font.css';
+import "../../font.css";
 
 export function WiiClock() {
 	const [now, setNow] = useState(new Date());
@@ -31,7 +31,10 @@ export function WiiClock() {
 			</span>
 			<span
 				className="text-center text-2xl font-light text-[#7a7a7a] select-none tracking-wide drop-shadow"
-				style={{ letterSpacing: "0.05em", fontFamily: "'Wii Clock', sans-serif" }}
+				style={{
+					letterSpacing: "0.05em",
+					fontFamily: "'Wii Clock', sans-serif",
+				}}
 			>
 				{`${hours}:${minutes}`}
 			</span>

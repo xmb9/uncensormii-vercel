@@ -31,13 +31,12 @@ export function SysBkndSelect_ContSetup() {
 			window.location.reload();
 		}
 	}, []);
-	
 
 	// TODO: impl sysbknd select
 	const handleConfirm = (selected) => {
 		console.log(selected);
 		var stage = localStorage.getItem("oobeStage");
-		stage = "wispServer"
+		stage = "wispServer";
 		localStorage.setItem("oobeStage", "wispServer");
 		window.location.reload();
 	};

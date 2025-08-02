@@ -1,4 +1,4 @@
-import { createRoot } from 'preact/compat/client';
+import { createRoot } from "preact/compat/client";
 import { WiiChannelLookup } from "./WiiChannelLookup";
 import { WiiChannelFull } from "./WiiChannelFull";
 

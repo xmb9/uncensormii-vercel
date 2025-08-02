@@ -3,7 +3,7 @@ import { WiiChannel } from "../WiiChannel";
 import { WiiMenuFooterButton } from "./WiiMenuFooterButton";
 import { WiiMenuFooter } from "./WiiMenuFooter";
 import { WiiClock } from "./WiiMenuClock";
-import { defaultChannels } from '../../global/defaultChannels';
+import { defaultChannels } from "../../global/defaultChannels";
 
 export function WiiMenuMain({ mode }) {
 	if (!localStorage.getItem("channels")) {
@@ -43,16 +43,9 @@ export function WiiMenuMain({ mode }) {
 						{[...Array(12)].map((_, i) => {
 							const ch = channels[i];
 							return ch ? (
-								<WiiChannel
-									id={ch.id}
-									enabled
-									mode={mode}
-								/>
+								<WiiChannel id={ch.id} enabled mode={mode} />
 							) : (
-								<WiiChannel
-									key={`placeholder-${i}`}
-									mode={mode}
-								/>
+								<WiiChannel key={`placeholder-${i}`} mode={mode} />
 							);
 						})}
 					</div>

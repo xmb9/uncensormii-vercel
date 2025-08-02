@@ -40,7 +40,7 @@ export function App() {
 			</div>
 
 			<div className="w-screen h-screen font-wiimain bg-black text-white z-101 hidden">
-			<wiiapp></wiiapp>
+				<wiiapp></wiiapp>
 			</div>
 
 			{oobeCompleted ? <Menu /> : <OOBERenderer />}
@@ -55,7 +55,6 @@ export function App() {
 			{/* )} */}
 
 			<HomeMenu />
-		
 		</div>
 	);
 }

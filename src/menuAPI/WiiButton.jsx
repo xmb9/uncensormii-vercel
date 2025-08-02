@@ -24,7 +24,8 @@ export function WiiButton({
 			</button>
 
 			{disabled && (
-				<div className="absolute top-0 left-0 w-full h-full bg-gray-500 opacity-50 pointer-events-none mask bg-contain bg-center bg-no-repeat"
+				<div
+					className="absolute top-0 left-0 w-full h-full bg-gray-500 opacity-50 pointer-events-none mask bg-contain bg-center bg-no-repeat"
 					style={{
 						WebkitMaskImage: rounded
 							? "url('/assets/img/btn/WiiButtonRounded.svg')"
@@ -32,19 +33,18 @@ export function WiiButton({
 						maskImage: rounded
 							? "url('/assets/img/btn/WiiButtonRounded.svg')"
 							: "url('/assets/img/btn/WiiButton.svg')",
-						WebkitMaskRepeat: 'no-repeat',
-						maskRepeat: 'no-repeat',
-						WebkitMaskSize: 'contain',
-						maskSize: 'contain',
-						WebkitMaskPosition: 'center',
-						maskPosition: 'center',
+						WebkitMaskRepeat: "no-repeat",
+						maskRepeat: "no-repeat",
+						WebkitMaskSize: "contain",
+						maskSize: "contain",
+						WebkitMaskPosition: "center",
+						maskPosition: "center",
 					}}
 				/>
 			)}
 		</div>
 	);
 }
-
 
 export function WiiButtonMultiSelection({
 	children,
