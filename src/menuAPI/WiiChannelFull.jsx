@@ -1,3 +1,4 @@
+import { AppLauncher } from "../menu/appLauncher";
 import { WiiMenuFooter } from "./menu/WiiMenuFooter";
 import { WiiButton } from "./WiiButton";
 import { WiiChannelHandler } from "./WiiChannelHandler";
@@ -30,7 +31,7 @@ export function WiiChannelFull({ chn, mode }) {
 				<WiiButton rounded onClick={() => WiiChannelHandler("SPCL.returnToMenu")}>
 					Return to Menu
 				</WiiButton>
-				<WiiButton rounded disabled={isDiscChannel}>
+				<WiiButton rounded disabled={isDiscChannel} onClick={() => AppLauncher(chn.id)}>
 					Start
 				</WiiButton>
 			</WiiMenuFooter>

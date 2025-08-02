@@ -7,7 +7,6 @@ import { defaultChannels } from '../../global/defaultChannels';
 
 export function WiiMenuMain({ mode }) {
 	if (!localStorage.getItem("channels")) {
-		console.log("wowowowow initialzing channels yay!");
 		localStorage.setItem("channels", JSON.stringify(defaultChannels));
 	}
 
@@ -16,9 +15,10 @@ export function WiiMenuMain({ mode }) {
 
 	return (
 		<>
-			{/* a fake element used by WiiChannelHandler,
+			{/* 
+			a fake element used by WiiChannelHandler,
 			used to display the currently selected WiiChannel
-		*/}
+			*/}
 			<wiichannelfswindow></wiichannelfswindow>
 			<div
 				className="flex flex-col bg-gradient-to-b from-[#f6f6f6] to-[#e1e2e6]"

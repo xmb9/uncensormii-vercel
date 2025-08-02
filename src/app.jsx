@@ -2,7 +2,8 @@ import "./index.css";
 import { useEffect, useState } from "preact/hooks";
 import { OOBERenderer } from "./setup/oobeRenderer.jsx";
 import { Menu } from "./menu/main.jsx";
-import { TestingMenu } from "./testing.jsx";
+import { TestingMenu } from "./popups/testing.jsx";
+import { HomeMenu } from "./popups/homemenu.jsx";
 
 export function App() {
 	const [testingVisible, setTestingVisible] = useState(false);
@@ -37,6 +38,11 @@ export function App() {
 				your screen is too small, or you're on a phone. please use a desktop to
 				use UncensorMii
 			</div>
+
+			<div className="w-screen h-screen font-wiimain bg-black text-white z-101 hidden">
+			<wiiapp></wiiapp>
+			</div>
+
 			{oobeCompleted ? <Menu /> : <OOBERenderer />}
 
 			{/* only enable our testing menu when running 'pnpm dev' */}
@@ -47,6 +53,9 @@ export function App() {
 				onClose={() => setTestingVisible(false)}
 			/>
 			{/* )} */}
+
+			<HomeMenu />
+		
 		</div>
 	);
 }
