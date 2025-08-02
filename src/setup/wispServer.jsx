@@ -1,15 +1,15 @@
 import { useEffect, useState } from "preact/hooks";
 
-export function wispServerSelect() {
+export function WispServerSelect() {
 	const [message, setMessage] = useState(
 		"[DEV] OOBE is unfinished. Redirecting to HOME Menu...",
 	);
 
 	useEffect(() => {
+		console.log("we're balling now");
 		const timer = setTimeout(() => {
-			const done = localStorage.getItem("oobeCompleted") === "true";
-			const newVal = !done;
-			localStorage.setItem("oobeCompleted", newVal.toString());
+			localStorage.setItem("oobeCompleted", "true");
+			localStorage.setItem("oobeStage", "wispServer");
 			window.location.reload();
 		}, 2000);
 

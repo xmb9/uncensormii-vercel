@@ -1,10 +1,12 @@
 import { useEffect, useState, useRef } from "preact/hooks";
 import { EnterKeyIcon_svg } from "../assets/enter.jsx";
 import { SysBkndSelect_ContSetup } from "./sysBkndSelect.jsx";
-import { wispServerSelect } from "./wispServer.jsx";
+import { WispServerSelect } from "./wispServer.jsx";
 
 export function Setup() {
-	const [phase, setPhase] = useState("initial");
+	const [phase, setPhase] = useState(
+		localStorage.getItem("oobeStage") || "initial",
+	);
 	const [isFading, setIsFading] = useState(false);
 	const dingAudio = useRef(null);
 
@@ -161,7 +163,7 @@ export function Setup() {
 					</div>
 				)}
 
-				{phase === "wispServerSelect" && (
+				{phase === "wispServer" && (
 					<div
 						className="absolute left-1/2 top-1/2 w-screen h-[70vh] px-8 flex text-gray-500 text-lg bg-repeat-x bg-top transition-opacity duration-300"
 						style={{
