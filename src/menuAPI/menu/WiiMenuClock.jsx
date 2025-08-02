@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import '../../font.css';
 
 export function WiiClock() {
 	const [now, setNow] = useState(new Date());
@@ -15,7 +16,7 @@ export function WiiClock() {
 	const day = now.getDate();
 	let hours = now.getHours();
 	const minutes = now.getMinutes().toString().padStart(2, "0");
-	const ampm = hours >= 12 ? "PM" : "AM";
+	const ampm = hours >= 12 ? "P" : "A";
 
 	hours = hours % 12;
 	if (hours === 0) hours = 12;
@@ -30,9 +31,9 @@ export function WiiClock() {
 			</span>
 			<span
 				className="text-center text-2xl font-light text-[#7a7a7a] select-none tracking-wide drop-shadow"
-				style={{ letterSpacing: "0.05em" }}
+				style={{ letterSpacing: "0.05em", fontFamily: "'Wii Clock', sans-serif" }}
 			>
-				{`${hours}:${minutes} ${ampm}`}
+				{`${hours}:${minutes}`}
 			</span>
 		</div>
 	);
