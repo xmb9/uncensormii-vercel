@@ -31,11 +31,11 @@ export function SysBkndSelect_ContSetup() {
 			window.location.reload();
 		}
 	}, []);
-	
 
 	// TODO: impl sysbknd select
 	const handleConfirm = (selected) => {
 		console.log(selected);
+<<<<<<< HEAD
 		// var stage = localStorage.getItem("oobeStage");
 		// stage = "wispServer"
 		// localStorage.setItem("oobeStage", "wispServer");
@@ -45,6 +45,12 @@ export function SysBkndSelect_ContSetup() {
       	const newVal = !done;
       	localStorage.setItem("oobeCompleted", newVal.toString());
       	window.location.reload();
+=======
+		var stage = localStorage.getItem("oobeStage");
+		stage = "wispServer";
+		localStorage.setItem("oobeStage", "wispServer");
+		window.location.reload();
+>>>>>>> cc48ddba0e476636c2e1a10415387675b6c10e43
 	};
 
 	return (

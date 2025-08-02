@@ -24,14 +24,26 @@ export function WiiChannelFull({ chn, mode }) {
 					aspectRatio: aspect,
 				}}
 			>
-				{banner && <img src={banner} className="w-full p-0 m-0 h-full object-contain" />}
+				{banner && (
+					<img src={banner} className="w-full p-0 m-0 h-full object-contain" />
+				)}
 			</div>
 
-			<WiiMenuFooter className="flex-shrink-0 basis-1/5 px-12 bg-gradient-to-t from-[#e1e2e6] to-[#f6f6f6] border-t-6 border-[#34beed] relative flex gap-x-4" style={{ boxShadow: "0 -2px 16px 0 #b3e3fa33" }}>
-				<WiiButton rounded onClick={() => WiiChannelHandler("SPCL.returnToMenu")}>
+			<WiiMenuFooter
+				className="flex-shrink-0 basis-1/5 px-12 bg-gradient-to-t from-[#e1e2e6] to-[#f6f6f6] border-t-6 border-[#34beed] relative flex gap-x-4"
+				style={{ boxShadow: "0 -2px 16px 0 #b3e3fa33" }}
+			>
+				<WiiButton
+					rounded
+					onClick={() => WiiChannelHandler("SPCL.returnToMenu")}
+				>
 					Return to Menu
 				</WiiButton>
-				<WiiButton rounded disabled={isDiscChannel} onClick={() => AppLauncher(chn.id)}>
+				<WiiButton
+					rounded
+					disabled={isDiscChannel}
+					onClick={() => AppLauncher(chn.id)}
+				>
 					Start
 				</WiiButton>
 			</WiiMenuFooter>

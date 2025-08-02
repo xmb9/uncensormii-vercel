@@ -1,10 +1,12 @@
 import { useEffect, useState, useRef } from "preact/hooks";
 import { EnterKeyIcon_svg } from "../assets/enter.jsx";
 import { SysBkndSelect_ContSetup } from "./sysBkndSelect.jsx";
-import { wispServerSelect } from "./wispServer.jsx";
+import { WispServerSelect } from "./wispServer.jsx";
 
 export function Setup() {
-	const [phase, setPhase] = useState("initial");
+	const [phase, setPhase] = useState(
+		localStorage.getItem("oobeStage") || "initial",
+	);
 	const [isFading, setIsFading] = useState(false);
 	const dingAudio = useRef(null);
 
@@ -143,7 +145,10 @@ export function Setup() {
 				{phase === "sysBkndSplash" && (
 					<div
 						className="absolute left-1/2 top-1/2 w-screen h-[70vh] px-8 flex text-gray-500 text-lg bg-repeat-x bg-top transition-opacity duration-300"
-						style={{ transform: "translateX(-50%) translateY(-50%)", opacity: isFading ? 0 : 1 }}
+						style={{
+							transform: "translateX(-50%) translateY(-50%)",
+							opacity: isFading ? 0 : 1,
+						}}
 					>
 						<div className="flex flex-col justify-center space-y-4 w-full h-full">
 							{texts.sysBkndSplash.map((line, i) => (
@@ -158,10 +163,13 @@ export function Setup() {
 					</div>
 				)}
 
-				{phase === "wispServerSelect" && (
+				{phase === "wispServer" && (
 					<div
 						className="absolute left-1/2 top-1/2 w-screen h-[70vh] px-8 flex text-gray-500 text-lg bg-repeat-x bg-top transition-opacity duration-300"
-						style={{ transform: "translateX(-50%) translateY(-50%)", opacity: isFading ? 0 : 1 }}
+						style={{
+							transform: "translateX(-50%) translateY(-50%)",
+							opacity: isFading ? 0 : 1,
+						}}
 					>
 						<WispServerSelect />
 					</div>
