@@ -3,9 +3,13 @@ import { WiiChannelLookup } from "./WiiChannelLookup";
 import "./css/channel.css";
 import "./css/animations.css";
 
-export function WiiChannel({ id, enabled = false, mode = "widescreen" }) {
+export function WiiChannel({ id, enabled = false, mode = "widescreen", fsimg = false }) {
 	const chn = WiiChannelLookup(id);
-	const icon = chn?.icon || "";
+	const icon =
+    mode === "widescreen"
+        ? chn?.WSicon || chn?.icon || ""
+        : chn?.SDicon || chn?.icon || "";
+
 	const name = chn?.name || "";
 	const spin = chn?.rotating === true;
 
@@ -28,9 +32,9 @@ export function WiiChannel({ id, enabled = false, mode = "widescreen" }) {
 					<img
 						src={icon}
 						alt={id}
-						className={`absolute inset-0 w-full h-full object-contain p-1 pointer-events-none ${
+						className={`absolute inset-0 w-full h-full rounded-xl object-contain pointer-events-none ${
 							spin ? "spin3d" : ""
-						}`}
+						} ${fsimg ? "" : "p-1"}`}
 					/>
 				)}
 			</div>

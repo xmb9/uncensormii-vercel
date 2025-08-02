@@ -51,7 +51,7 @@ export function WiiMenuMain({ mode }) {
 						{[...Array(12)].map((_, i) => {
 							const ch = channels[i];
 							return ch ? (
-								<WiiChannel id={ch.id} enabled mode={mode} />
+								<WiiChannel id={ch.id} enabled mode={mode} fsimg={ch.fsimg} />
 							) : (
 								<WiiChannel key={`placeholder-${i}`} mode={mode} />
 							);
